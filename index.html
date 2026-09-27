@@ -3,22 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>د. عبدالله الرشودي - جهة الاتصال</title>
-    <!-- هذا السطر يجعل الملف يتحمل تلقائياً فور فتح الصفحة -->
-    <meta http-equiv="refresh" content="0; url=dr.abdullah-alreshoodi.vcf">
+    <title>د. عبدالله بن أحمد الرشودي | شركة الرشودي للمحاماة</title>
+    <!-- استدعاء خط مرسال Mersal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mersal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: system-ui, sans-serif; text-align: center; padding: 50px 20px; background: #f9f9f9; }
-        .card { max-width: 400px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        a.btn { display: inline-block; margin-top: 15px; padding: 12px 24px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
+        :root {
+            /* الألوان المعتمدة في دليل الهوية */
+            --ink: #41394C;
+            --gold: #BB9771;
+            --cream: #FCF7F2;
+            
+            /* التدرجات المسموحة */
+            --ink-70: rgba(65, 57, 76, 0.7);
+            --gold-70: rgba(187, 151, 113, 0.7);
+            --gradient-secondary: linear-gradient(180deg, #41394C 0%, #BB9771 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Mersal', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--ink); 
+            color: var(--cream);
+            text-align: right;
+            padding: 40px 15px;
+            direction: rtl;
+        }
+
+        /* البطاقة الرئيسية - زوايا مربعة حسب الدليل */
+        .card { 
+            max-width: 440px; 
+            margin: 0 auto; 
+            background: var(--ink); 
+            border: 1px solid var(--gold);
+            padding: 40px 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* الشريط السفلي للتدرج المعتمد */
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+        }
+
+        /* قسم الشعار والهوية */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 28px;
+            border-bottom: 1px solid var(--gold-70);
+            padding-bottom: 20px;
+        }
+
+        .pillar-icon {
+            width: 32px;
+            height: 48px;
+            margin: 0 auto 12px auto;
+            display: block;
+        }
+
+        .firm-title-ar {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .firm-title-en {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--cream);
+            margin-top: 2px;
+            letter-spacing: 1px;
+            font-family: 'Mersal', sans-serif;
+        }
+
+        .slogan {
+            font-size: 14px;
+            color: var(--gold);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* قسم الصورة الشخصية والدكتور */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-img {
+            width: 105px;
+            height: 105px;
+            object-fit: cover;
+            border: 1px solid var(--gold);
+            margin-bottom: 14px;
+            background-color: var(--cream);
+        }
+
+        .person-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 4px;
+        }
+
+        .person-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        /* حاوية البيانات الفاتحة (cream) */
+        .info-box {
+            background-color: var(--cream);
+            color: var(--ink);
+            padding: 20px;
+            margin-bottom: 24px;
+            border-right: 3px solid var(--gold);
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .info-value a {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* الفروع والبيانات */
+        .branches-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--gold-70);
+            padding-bottom: 4px;
+        }
+
+        .branches-list {
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--cream);
+            margin-bottom: 24px;
+        }
+
+        /* الأزرار الهيكلية الرسمية - زوايا مربعة */
+        .btn-main {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            background-color: var(--gold);
+            color: var(--ink);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 12px;
+            border: 1px solid var(--gold);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: transparent;
+            color: var(--cream);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid var(--cream);
+        }
+
+        .values-footer {
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gold-70);
+            text-align: center;
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <h2>د. عبدالله بن أحمد الرشودي</h2>
-        <p>شركة الرشودي للمحاماة</p>
-        <p>المدير التنفيذي (CEO)</p>
-        <p>جاري تحميل جهة الاتصال تلقائياً...</p>
-        <a href="dr.abdullah-alreshoodi.vcf" class="btn">اضغط هنا إذا لم يبدأ التحميل</a>
+        <!-- 1. الشعار والهوية البصرية (رمز العمود الكلاسيكي) -->
+        <div class="brand-header">
+            <svg class="pillar-icon" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4H22M4 4V32M20 4V32M2 32H22M7 8V28M12 8V28M17 8V28" stroke="#BB9771" stroke-width="2" stroke-linecap="square"/>
+            </svg>
+            <div class="firm-title-ar">شركة الرشودي للمحاماة</div>
+            <div class="firm-title-en">Alreshoodi Law Firm</div>
+            <div class="slogan">حلول قانونية مبتكرة ومستدامة</div>
+        </div>
+
+        <!-- 2. الصورة الشخصية والاسم -->
+        <div class="profile-section">
+            <img src="profile.jpg" alt="د. عبدالله الرشودي" class="profile-img" onerror="this.style.display='none'">
+            <h1 class="person-name">د. عبدالله بن أحمد الرشودي</h1>
+            <div class="person-title">المدير التنفيذي (CEO)</div>
+        </div>
+
+        <!-- 3. بيانات التواصل الأساسية (على خلفية Cream مع أرقام مشرقية) -->
+        <div class="info-box">
+            <div class="info-item">
+                <span class="info-label">الرقم الموحد:</span>
+                <span class="info-value"><a href="tel:920021400">٩٢٠٠٢١٤٠٠</a></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">الجوال المباشر:</span>
+                <span class="info-value"><a href="tel:+966551500741">٠٥٥١٥٠٠٧٤١</a></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">البريد الإلكتروني:</span>
+                <span class="info-value"><a href="mailto:info@alreshoodi.sa">info@alreshoodi.sa</a></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">الموقع الإلكتروني:</span>
+                <span class="info-value"><a href="https://alreshoodi.sa" target="_blank">alreshoodi.sa</a></span>
+            </div>
+        </div>
+
+        <!-- 4. الفروع الرسمية -->
+        <div class="branches-title">فروعنا</div>
+        <div class="branches-list">
+            • <b>الرياض:</b> طريق الملك فهد جوار برج رافال<br>
+            • <b>مكة المكرمة:</b> النسيم جوار مرور العاصمة<br>
+            • <b>جدة:</b> طريق التحلية برج المنارة
+        </div>
+
+        <!-- 5. الأزرار الرسمية -->
+        <a href="dr.abdullah-alreshoodi.vcf" class="btn-main">حفظ جهة الاتصال</a>
+        <a href="https://wa.me/966551500741" class="btn-secondary" target="_blank">التواصل عبر الواتساب</a>
+
+        <!-- 6. القيم المؤسسية -->
+        <div class="values-footer">
+            النزاهة · المصداقية والوضوح · الالتزام · المرونة والسرعة · السرية
+        </div>
     </div>
+
 </body>
 </html>
